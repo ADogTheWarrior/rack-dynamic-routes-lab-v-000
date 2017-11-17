@@ -3,7 +3,7 @@ class Application
   def call(env)
     resp = Rack::Response.new
     req = Rack::Request.new(env)
-    
+
 puts "req.path = #{req.path}"
     if req.path=="/item"
       resp.write "You requested the songs"
