@@ -7,9 +7,9 @@ class Application
 puts "req.path = #{req.path}"
     if req.path.match(/items/)
       item_name = req.path.split("/items/").last
-      
+
       item = @@items.find{|i| i.name == item_name}
-      
+
       if item != nil
         resp.write item.price.to_s
       else
