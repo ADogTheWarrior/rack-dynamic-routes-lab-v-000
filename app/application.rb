@@ -7,7 +7,12 @@ class Application
 puts "req.path = #{req.path}"
     if req.path.match(/items/)
       item_name = req.path.split("/items/").last
-      resp.write "Item price"
+      if item_name 
+        resp.write "Item price"
+      else
+        resp.write "Item not found"
+        resp.status = 400
+      end
     else
       resp.write "Route not found"
       resp.status = 404
