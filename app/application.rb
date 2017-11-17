@@ -7,7 +7,7 @@ class Application
 puts "req.path = #{req.path}"
     if req.path.match(/items/)
       item_name = req.path.split("/items/").last
-      if item_name 
+      if Item.include?(item_name)
         resp.write "Item price"
       else
         resp.write "Item not found"
