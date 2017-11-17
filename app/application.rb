@@ -5,6 +5,7 @@ class Application
     req = Rack::Request.new(env)
 
 puts "req.path = #{req.path}"
+puts req.path
     if req.path=="/item"
       resp.write "You requested the songs"
     else
