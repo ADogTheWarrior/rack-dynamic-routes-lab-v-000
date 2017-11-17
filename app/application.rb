@@ -3,9 +3,9 @@ class Application
   def call(env)
     resp = Rack::Response.new
     req = Rack::Request.new(env)
-
-    if req.path=="/item"
+    
 puts "req.path = #{req.path}"
+    if req.path=="/item"
       resp.write "You requested the songs"
     else
       resp.write "Route not found"
