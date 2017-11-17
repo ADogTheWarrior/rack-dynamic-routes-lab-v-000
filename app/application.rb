@@ -6,8 +6,9 @@ class Application
 
 puts "req.path = #{req.path}"
 puts req.path
-    if req.path=="/item"
-      resp.write "You requested the songs"
+    if req.path.match(/items/)
+      item_name = req.path.split("/items/").last
+      resp.write "Item price"
     else
       resp.write "Route not found"
       resp.status = 404
@@ -15,4 +16,13 @@ puts req.path
 
     resp.finish
   end
+end
+
+
+if req.path.match(/items/)
+
+  song_title = req.path.split("/items/").last #turn /songs/Sorry into Sorry
+  song = @@songs.find{|s| s.title == song_title}
+
+  resp.write song.artist
 end
