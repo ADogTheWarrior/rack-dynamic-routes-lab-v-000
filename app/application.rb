@@ -5,7 +5,7 @@ class Application
     req = Rack::Request.new(env)
 
 puts "req.path = #{req.path}"
-puts Item.all
+puts Item.methods
     if req.path.match(/items/)
       item_name = req.path.split("/items/").last
       resp.write "Item price"
